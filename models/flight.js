@@ -17,3 +17,5 @@ const flightSchema = new Schema({
       default:  Date.now() + (366*24*60*60*1000)
     }
 });      
+
+module.exports = mongoose.model('Flight', flightSchema);
