@@ -7,23 +7,23 @@ module.exports = {
 };
 
 function newFlight(req, res) {
-  res.render('flights/new');
+  res.render('flights/new', {title: 'New Flight'});
 };
 
 function create(req, res) {
-	//if (req.body.departs === '') delete req.body.departs;
-  let flight = new Flight(req.body);
-  flight.save(function(err) {
-    if(err) return res.render('flights/new');
-            //remove later in development
-            console.log(flight);
-            //redirect to new.ejs
-  res.redirect('flights');
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key];
+  }
+  var flight = new Flight(req.body);
+  flight.save(function (err) {
+    if (err) return res.render('flights/new', {title: 'New Flight'});
+    console.log(flight);
+    res.redirect('flights');
   });
 };
 
 function index(req, res) {
-	Flight.find({}, function(err, flights) {
-		res.render('flights/index', { flights });
-	});
+  Flight.find({}, function (err, flights) {
+    res.render('flights', {title: 'All Flights', flights});
+  });
 };
