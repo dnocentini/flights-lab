@@ -4,6 +4,7 @@
     <th>Airline</th>
     <th>Flight Number</th>
     <th>Departure Date/Time</th>
+    <th>Airport</th>
   </thead>
   <tbody>
     <% flights.forEach(function(flight){ %>
@@ -11,6 +12,7 @@
       <td><%= flight.airline %></td>
       <td><%= flight.flightNo %></td>
       <td><%= flight.departs %></td>
+      <td><%= flight.airport %></td>
     </tr>
     <% }) %>
   </tbody>
