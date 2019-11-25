@@ -17,7 +17,7 @@ function show(req, res) {
 };  
 
   function newFlight(req, res) {
-    res.render('flights/new', {title: 'New Flight'});
+    res.render('flights/new', {title: 'Add Flight'});
   };
 
   function create(req, res) {
@@ -26,7 +26,7 @@ function show(req, res) {
     }
     var flight = new Flight(req.body);
     flight.save(function (err) {
-      if (err) return res.render('flights/new', {title: 'New Flight'});
+      if (err) return res.render('flights/new', {title: 'Add Flight'});
       console.log(flight);
       res.redirect('flights');
     });
