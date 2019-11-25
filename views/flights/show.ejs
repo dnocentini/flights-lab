@@ -1,28 +1,26 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Airline:</div>
-    <div><%= flight.airline %></div>
-    <div>Flight Number:</div>
-    <div><%= flight.flightNo %></div>
-    <div>Departure Date/Time:</div>
-    <div><%= flight.departs %></div>
-    <div>Departing Airport:</div>
-    <div><%= flight.airport %></div>
+  <div>Airline:</div>
+  <div><%= flight.airline %></div>
+  <div>Flight Number:</div>
+  <div><%= flight.flightNo %></div>
+  <div>Departure Date/Time:</div>
+  <div><%= flight.departs %></div>
+  <div>Departing Airport:</div>
+  <div><%= flight.airport %></div>
 
-    <div>Arrival Date/Time: </div>
-    <div>Arrival Airport:</div>
-
-    <% flight.destinations.forEach(function(place) { %>
-      <div> <%= place.arrival %> </div>
-      <div><%= place.airport %></div>
-    <% }) %>
-
-  <div>Seat:</div> 
-  <div>Price:</div>
+  <% flight.destinations.forEach(function(place) { %>
+  <div>Arrival Date/Time: </div>
+  <div> <%= place.arrival %> </div>
+  <div>Arrival Airport:</div>
+  <div><%= place.airport %></div>
+  <% }) %>
 
   <% tickets.forEach(function(ticket){ %>
+  <div>Seat:</div>
   <div><%= ticket.seat %></div>
+  <div>Price:</div>
   <div><%= ticket.price %></div>
   <% })%>
 </section>
@@ -31,19 +29,19 @@
   <h2>Update Arrival Details </h2>
   <form id="add-arrival-form" action="/flights/<%= flight._id %>" method="POST">
     <label>Arrival Airport:</label>
-      <select name="airport">
-        <option value="AUS">Austin</option>
-        <option value="DAL">Dallas</option>
-        <option value="LAX">Los Angeles</option>
-        <option value="SAN">San Diego</option>
-        <option value="SEA">Seattle</option>
-      </select>
+    <select name="airport">
+      <option value="AUS">Austin</option>
+      <option value="DAL">Dallas</option>
+      <option value="LAX">Los Angeles</option>
+      <option value="SAN">San Diego</option>
+      <option value="SEA">Seattle</option>
+    </select>
     <label>Arrival Date/Time:</label>
-      <input type="datetime-local" name="arrival">
+    <input type="datetime-local" name="arrival">
     <input type="submit" value="Add Arrival">
     <button>
-        <a href="/flights/<%= flight._id %>/tickets/new">Add New ticket</a>
-     </button>
+      <a href="/flights/<%= flight._id %>/tickets/new">Add New ticket</a>
+    </button>
   </form>
 </section>
 
