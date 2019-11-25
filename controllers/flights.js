@@ -5,33 +5,19 @@ module.exports = {
   index,
   create,
   new: newFlight,
-  show,
-  update
-};
-
-function update(req, res) {
-  Flight.findById(req.params.id, function (err, flight) {
-    flight.destinations.push(req.body);
-    flight.save(function (err) {
-      res.redirect(`/flights/${flight._id}`);
-    });
-  })
+  show
 };
 
 function show(req, res) {
   Flight.findById(req.params.id, function (err, flight) {
-    console.log(flight);
-    console.log(Ticket);
-    Ticket.find({ flight: flight._id }, function (err, tickets) {
-      console.log(err);
-      console.log('FLIGHT: ', flight);
-      res.render('flights/show', { title: `Flight # ${flight._id}`, flight, tickets });
+    Ticket.find({flight: flight._id}, function (err, tickets) {
+      res.render('flights/show', {title: 'Flight Details', flight, tickets});
     });
   });
 };  
 
   function newFlight(req, res) {
-    res.render('flights/new', { title: 'New Flight' });
+    res.render('flights/new', {title: 'New Flight'});
   };
 
   function create(req, res) {
@@ -40,14 +26,14 @@ function show(req, res) {
     }
     var flight = new Flight(req.body);
     flight.save(function (err) {
-      if (err) return res.render('flights/new', { title: 'New Flight' });
+      if (err) return res.render('flights/new', {title: 'New Flight'});
       console.log(flight);
       res.redirect('flights');
     });
   };
 
   function index(req, res) {
-    Flight.find({}, function (err, flights) {
-      res.render('flights', { title: 'All Flights', flights });
+    Flight.find({}, null, {sort: {departs: 1}}, function (err, flights) {
+      res.render('flights', {title: 'All Flights', flights});
     });
   };
