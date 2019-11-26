@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color: #424748;
+  color: #053C5E;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #053C5E;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -34,7 +34,7 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #E8ECEB;
+  background-color:#FEFEFF;
   padding: 20px;
   overflow-y: scroll;
 }
@@ -48,15 +48,16 @@ nav > a {
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
+  color: #FEFEFF;
 }
 
 nav > a:hover {
-  color: white;
-  background-color: #424748;
+  background-color: #FEFEFF;
+  color: #053C5E;
 }
 
 nav > a.active {
-  color: white;
+  color: #F15025;
 }
 
 #new-form {
@@ -83,7 +84,7 @@ table {
 
 table thead th {
   padding: 5px;
-  border-bottom: 2px solid #424748;
+  border-bottom: 2px solid #F15025;
 }
 
 table td {
@@ -97,14 +98,16 @@ table td {
 
 #list a {
   border-radius: 4px;
-  background-color: #B8C0C2;
+  background-color: #053C5E;
   padding: 4px;
   text-decoration: none;
   font-size: 14px;
+  color: #FEFEFF;
 }
 
 #list a:hover {
-  background-color: white;
+  background-color: #F15025;
+  color:  #FEFEFF;
 }
 
 #show-page {

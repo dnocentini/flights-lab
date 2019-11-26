@@ -9,8 +9,7 @@ const destinationSchema = new Schema({
     default: 'SEA'
   },
   arrival: {
-    type: Date,
-    default: Date.now()
+    type: Date
   }
 }, { timestamps: true });
 
@@ -27,8 +26,7 @@ const flightSchema = new Schema({
     min: 10,
   },
   departs: {
-    type: Date,
-    // default: Date.now() + (366 * 24 * 60 * 60 * 1000)
+    type: Date
   },
   airport: {
     type: String,
